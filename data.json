@@ -1,0 +1,35 @@
+[
+	{
+		"id": 1,
+		"name": "Bahia Inglesa",
+		"description": "A very nice place Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+		"moreInfo": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem",
+		"image": "https://i4.visitchile.com/img/GalleryContent/237/slider/bahia_inglesa.jpg",
+		"price": "59.990"
+	},
+	{
+		"id": 2,
+		"name": "Iquique",
+		"description": "A very nice place Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+		"moreInfo": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem",
+		"image": "https://chile.travel/wp-content/uploads/2016/03/Iquique-sernatur-DST35.jpg",
+		"price": "70.990"
+	},
+	{
+		"id": 3,
+		"name": "Arica",
+		"description": "A very nice place Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+		"moreInfo": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem",
+		"image": "https://storage.googleapis.com/chile-travel-static-content/2018/05/arica.jpg",
+		"price": "79.990"
+	},	
+	{
+		"id": 4,
+		"name": "Santiago",
+		"description": "A very nice place Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+		"moreInfo": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem",
+		"image": "https://www.duna.cl/media/2019/06/chile_0.jpg",
+		"price": "26.990"
+	}
+
+]

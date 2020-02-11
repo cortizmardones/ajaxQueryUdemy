@@ -1,0 +1,80 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+
+	</head>
+	<body>
+		
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-3"></div>
+				
+				<div class="col-md-6">
+					<br><hr>
+					<button class="btn btn-block btn-primary" id="traerUsuarios">Traer Usuarios</button>
+					<br>
+					<a href="index.html"><button class="btn btn-block btn-dark">Volver al inicio</button></a>
+
+					<div id="resultado">
+
+					</div>
+					
+				</div>
+
+				<div class="col-md-3"></div>
+			</div>
+			<br><hr>
+		</div>	
+
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+
+		<script>
+			$(document).ready(function(){
+
+				$("#traerUsuarios").on("click", traerUsuarios);
+
+				function traerUsuarios() {
+					$.ajax({
+						url: 'https://reqres.in/api/users',
+						type: 'get',
+						dataType:'json',
+	  					contentType:'aplication/json',
+	  					cache: false,
+
+						success: function(respuesta) {
+
+							var html;
+							$.each(respuesta.data, function(index, element) {
+	 							html = '<br>';
+								html += '<p> N°: '+element.id+'</p>';
+								html += '<p> Nombre: '+element.first_name+ ' ' + element.last_name + '</p>';
+								html += '<p> Email: '+element.email+'</p>';
+								html += '<img src='+ element.avatar+ '>';
+								html += '<hr>';
+
+								$('#resultado').append(html);
+							});
+						},
+						error: function() {
+							console.log("No se ha podido obtener la información");
+						}
+					});
+				}
+
+
+
+
+
+
+			});
+		</script>
+
+	</body>
+	</html>	
+

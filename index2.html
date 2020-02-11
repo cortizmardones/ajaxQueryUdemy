@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<br><hr>
+				<p>Ingrese su rut por favor: </p>
+				<p>(Al completar el rut agrega los puntos y el guión automaticamente con Jquery)</p>
+				<br>
+				<input type="text" id="rut" class="form-control">
+				<br>
+				<a href="index3.html"><button class="btn btn-block btn-dark">Ejemplo siguiente</button></a>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+
+	</div>
+
+	<br>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<script>
+
+		$(document).ready(function(){
+			$('#rut').on('keydown',function(){
+
+				var datos = $('#rut').val();
+				var prueba = new String(datos);
+
+				if (prueba.length==8){
+					$('#rut').val(prueba.substring(0,2)+"."+prueba.substring(2,5)+"."+prueba.substring(5,8)+"-"+prueba.substring(8,9));
+				}
+
+			});
+		});
+		
+	</script>
+
+</body>
+</html>

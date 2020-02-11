@@ -1,0 +1,86 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+
+	</head>
+	<body>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<br><hr>
+
+					<button class="btn btn-block btn-primary" id="click">Traer datos del archivo Json</button>
+					<br>
+					<a href="index2.html"><button class="btn btn-block btn-secondary">Ejemplo siguiente</button></a>
+
+					<div id="resultado">
+
+					</div>
+					
+				</div>				
+				<div class="col-md-3"></div>
+			</div>
+		</div>	
+		
+		
+
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+
+		<script>
+	  	/* En esta forma incluimos los errores.
+	  	$(document).ready(function(){
+	  		$('#click').on('click',function(){
+
+	  			$.ajax('resultado.html',{
+	  				beforeSend: function(){
+	  					$('#status').text('Cargando');
+	  				}
+	  			}).done(function(response){
+	  				$('#resultado').html(response);
+
+	  			}).fail(function(request, errorType, errorMessage){
+	  				//timeout,error,abort,parseerror
+	  			});
+
+	  		});
+
+	  	});*/
+	  </script>
+
+	  <script>
+	  	$(document).ready(function(){
+	  		$('#click').on('click',function(){
+	  			$.ajax('data.json',{
+	  				dataType:'json',
+	  				contentType:'aplication/json',
+	  				cache: false
+	  			}).done(function(response){
+	  				console.log(response);
+	  				var html;
+	  				$.each(response,function(index,element){
+	  					html = '<br>';
+	  					html += '<p> N°: '+element.id+'</p>';
+	  					html += '<p> Nombre: '+element.name+'</p>';
+	  					html += '<p> Descripción: '+element.description+'</p>';
+	  					html += '<p>Más información: '+element.moreInfo+'</p>';
+	  					html += '<img img-thumbnail  width="200" height="200" src='+element.image+'>';
+	  					html += '<br>';
+	  					html += '<p> Precio: $'+element.price+'</p>';
+	  					html += '<hr>';
+
+	  					$('#resultado').append(html);
+	  				});
+	  			});
+	  		});
+	  	});
+	  </script>
+
+	</body>
+	</html>

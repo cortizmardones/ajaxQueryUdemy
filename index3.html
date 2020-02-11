@@ -1,0 +1,95 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+
+	</head>
+	<body>
+		
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-3"></div>
+				
+				<div class="col-md-6">
+					<br><hr>
+					<button class="btn btn-block btn-primary" id="traerUsuarios">Traer Usuarios</button>
+					<br>
+					<input type="text" class="form-control" id="name" placeholder="Ingrese su nombre: ">
+					<br>
+					<input type="text" class="form-control" id="job" placeholder="Ingrese su profesión">
+					<br>
+					<button class="btn btn-block btn-success" id="crearUsuario">Crear Usuario</button>
+					<br>
+					<a href="index4.html"><button class="btn btn-block btn-dark">Ejemplo siguiente</button></a>
+
+					<div id="resultado">
+
+					</div>
+
+					<div id="resultado2">
+
+					</div>
+					
+				</div>
+
+				<div class="col-md-3"></div>
+			</div>
+			<br><hr>
+		</div>	
+
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+
+		<script>
+			$(document).ready(function(){
+
+				$('#traerUsuarios').on('click',obtenerUsuarios);
+				$('#crearUsuario').on('click',crearUsuario);
+
+				function obtenerUsuarios(){
+					$.get('https://reqres.in/api/users',function(respuesta){
+						console.log(respuesta);
+						var html;
+						$.each(respuesta.data,function(index,element){
+							html = '<br>';
+							html += '<p> N°: '+element.id+'</p>';
+							html += '<p> Nombre: '+element.first_name+ ' ' + element.last_name + '</p>';
+							html += '<p> Email: '+element.email+'</p>';
+							html += '<img src='+ element.avatar+ '>';
+							html += '<hr>';
+
+							$('#resultado').append(html);
+						});
+					});
+				}
+
+
+				function crearUsuario(){
+					$.post('https://reqres.in/api/users',{'name':$('#name').val(),'job':$('#job').val()},function(respuesta){
+						console.log(respuesta);
+						var html2;
+						$.each(respuesta,function(index,element){
+							html2 = '<br>';
+							html2 += '<p>'+element+'</p>';
+
+							$('#resultado2').append(html2);
+						});
+					});
+
+				}
+
+
+
+
+
+				
+			});
+		</script>
+
+	</body>
+	</html>	
+

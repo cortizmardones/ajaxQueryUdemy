@@ -1,0 +1,173 @@
+	<!DOCTYPE html>
+	<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Crud Jquery</title>
+
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!--Libreria excel-->
+		<link href="dist/css/tableexport.css" rel="stylesheet" type="text/css">
+
+	</head>
+	<body>
+
+		<header>
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+				<a class="navbar-brand" href="#">Crud Jquery</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://jquery.com/" target="_blank">Jquery</a>
+						</li>
+					</ul>
+					<form class="form-inline mt-2 mt-md-0">
+						<input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+					</form>
+				</div>
+			</nav>
+		</header>
+
+		<br><br>
+		
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-3"></div>
+				
+				<div class="col-md-6">
+					<br><hr>
+					<h4 class="text-center">Crud con Jquery</h4>
+					<br>
+					<h5>Ingresa ciudades: </h5>
+					<input type="text" class="form-control" id="campoTexto">
+					<br>
+					<button class="btn btn-block btn-primary" id="btnAgregarCiudad"><i class="fas fa-plus"></i> Agregar ciudad</button>
+					<button class="btn btn-block btn-success" id="btnExportarExcel"><i class="fas fa-file-excel"></i> Exportar a excel</button>
+					<hr>
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th><i class="fas fa-city"></i> Ciudades</th>
+								<th><i class="fas fa-edit"></i> Acciones</th>
+							</tr>
+						</thead>
+						<tbody id="agregarTbody">
+						<!--<tr>
+								<th>
+									Ejemplo
+								</th>
+								<th>
+									<button>Editar</button>
+									<button>Eliminar</button>
+								</th>
+							</tr>-->
+						</tbody>
+					</table>
+				</div>
+
+				<div class="col-md-3"></div>
+			</div>
+			<br><hr>
+		</div>
+		
+
+		<!--Boostrap-->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<!--Libreria de iconos-->
+		<script src="https://kit.fontawesome.com/971702eaaa.js" crossorigin="anonymous"></script>
+		
+		<!--Jquery-->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+
+		<!--Librerias para transformar tablas a HTML-->
+		<script src="libExcel/FileSaver.min.js"></script>
+		<script src="libExcel/xls.core.min.js"></script>
+		<script src="libExcel/Blob.min.js"></script>
+		<script src="dist/js/tableexport.js"></script>
+
+
+		<script>
+			$(document).ready(function(){
+
+				//Agregar foco al campo de texto al inicio.
+				$('#campoTexto').focus();
+
+				//Evento al presionar el boton de agregar ciudades.
+				$('#btnAgregarCiudad').on('click',function(){
+					var html = 
+					'<tr>\
+					<th>\
+					<input type="text" id="campoTextoGenerado" class="form-control" disabled value="' + $('#campoTexto').val() + '">\
+					</th>\
+					<th>\
+					<button class="btn btn-secondary" id="btnEditarCiudad"><i class="fas fa-pencil-alt"></i> Editar</button>\
+					<button class="btn btn-danger" id="btnEliminarCiudad"><i class="fas fa-trash"></i> Eliminar</button>\
+					</th>\
+					</tr>';
+
+					//console.log(html);
+
+					//Validación de campos vacios
+					if( $('#campoTexto').val() != '' ){
+						//Agrego la data a la tabla
+						$('#agregarTbody').append(html);
+						//Vacio el input de texto
+						$('#campoTexto').val('');
+						//Vuelvo a agregar el foco al campo de texto original.
+						$('#campoTexto').focus();
+					}else{
+						alert('Debe agregar una ciudad');
+					}
+					
+				});
+
+				//(La tabla existe desde que se carga el DOM pero el boton btnEliminarCiudad se carga recién después de que agrego una ciudad por lo que hay que ocupar delegación de eventos desde un padre que siempre haya existido para que funcione)
+				$('.table').on('click','#btnEliminarCiudad',function(){
+					//Escale buscando al padre de btnEliminarCiudad hasta llegar al tr principal.
+					$(this).parent().parent().remove();
+
+				});
+
+				//Lo resolvi subiendo un par de niveles y luego bajando xd (Revisar en detalle)
+				$('.table').on('click','#btnEditarCiudad',function(){
+					$(this).parent().parent().children().children().attr('disabled',false);
+				});
+
+				//Evento que se activa cuando se pierde el foco.
+				$('.table').on('blur','#campoTextoGenerado',function(){
+					$(this).attr('disabled',true);
+				});
+
+				//Prueba con la libreria de excel
+				$('body').on('click','#btnExportarExcel',function(){
+						$('table').tableExport({
+						formats: ["xlsx","txt", "csv"], //Tipo de archivos a exportar ("xlsx","txt", "csv", "xls")
+						position: 'button',  // Posicion que se muestran los botones puedes ser: (top, bottom)
+						bootstrap: false,//Usar lo estilos de css de bootstrap para los botones (true, false)
+						fileName: "ListadoCiudades"    //Nombre del archivo 
+					});
+				});
+
+
+	});
+</script>
+
+
+</body>
+</html>	
+
