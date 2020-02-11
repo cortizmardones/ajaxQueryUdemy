@@ -151,6 +151,8 @@
 				//Evento que se activa cuando se pierde el foco.
 				$('.table').on('blur','#campoTextoGenerado',function(){
 					$(this).attr('disabled',true);
+					//Vuelvo a agregar el foco al campo de texto original.
+					$('#campoTexto').focus();
 				});
 
 				//Prueba con la libreria de excel
