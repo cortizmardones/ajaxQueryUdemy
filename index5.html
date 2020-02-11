@@ -111,13 +111,13 @@
 				$('#btnAgregarCiudad').on('click',function(){
 					var html = 
 					'<tr>\
-					<th>\
-					<input type="text" id="campoTextoGenerado" class="form-control" disabled value="' + $('#campoTexto').val() + '">\
-					</th>\
-					<th>\
-					<button class="btn btn-secondary" id="btnEditarCiudad"><i class="fas fa-pencil-alt"></i> Editar</button>\
-					<button class="btn btn-danger" id="btnEliminarCiudad"><i class="fas fa-trash"></i> Eliminar</button>\
-					</th>\
+						<th>\
+							<input type="text" id="campoTextoGenerado" class="form-control" disabled value="' + $('#campoTexto').val() + '">\
+						</th>\
+						<th>\
+							<button class="btn btn-secondary" id="btnEditarCiudad"><i class="fas fa-pencil-alt"></i> Editar</button>\
+							<button class="btn btn-danger" id="btnEliminarCiudad"><i class="fas fa-trash"></i> Eliminar</button>\
+						</th>\
 					</tr>';
 
 					//console.log(html);
@@ -132,8 +132,10 @@
 						$('#campoTexto').focus();
 					}else{
 						alert('Debe agregar una ciudad');
+						//Vuelvo a agregar el foco al campo de texto original.
+						$('#campoTexto').focus();
 					}
-					
+
 				});
 
 				//(La tabla existe desde que se carga el DOM pero el boton btnEliminarCiudad se carga recién después de que agrego una ciudad por lo que hay que ocupar delegación de eventos desde un padre que siempre haya existido para que funcione)
@@ -156,8 +158,8 @@
 				});
 
 				//Prueba con la libreria de excel
-				$('body').on('click','#btnExportarExcel',function(){
-						$('table').tableExport({
+				$('html').on('click','#btnExportarExcel',function(){
+					$('.table').tableExport({
 						formats: ["xlsx","txt", "csv"], //Tipo de archivos a exportar ("xlsx","txt", "csv", "xls")
 						position: 'button',  // Posicion que se muestran los botones puedes ser: (top, bottom)
 						bootstrap: false,//Usar lo estilos de css de bootstrap para los botones (true, false)
@@ -166,10 +168,10 @@
 				});
 
 
-	});
-</script>
+			});
+		</script>
 
 
-</body>
-</html>	
+	</body>
+	</html>	
 
