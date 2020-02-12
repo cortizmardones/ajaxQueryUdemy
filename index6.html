@@ -1,0 +1,196 @@
+	<!DOCTYPE html>
+	<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Datatable</title>
+
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!--Libreria excel-->
+		<link href="dist/css/tableexport.css" rel="stylesheet" type="text/css">
+
+		<!--Libreria Datatable-->
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.20/datatables.min.css"/>
+
+	</head>
+	<body>
+
+		<header>
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+				<a class="navbar-brand" href="#">Ejercicio Datatable</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://jquery.com/" target="_blank">Jquery</a>
+						</li>
+					</ul>
+					<form class="form-inline mt-2 mt-md-0">
+						<input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+					</form>
+				</div>
+			</nav>
+		</header>
+
+		<br><br>
+		
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-3"></div>
+				
+				<div class="col-md-6">
+					<br><br><br>
+
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col"><i class="fas fa-address-book"></i> Nombre</th>
+								<th scope="col"><i class="fas fa-address-book"></i> Apellido</th>
+								<th scope="col"><i class="fab fa-twitter-square"></i> Usuario Twitter</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">1</th>
+								<td>Mark</td>
+								<td>Otto</td>
+								<td>@mdo</td>
+							</tr>
+							<tr>
+								<th scope="row">2</th>
+								<td>Jacob</td>
+								<td>Thornton</td>
+								<td>@fat</td>
+							</tr>
+							<tr>
+								<th scope="row">3</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">4</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">5</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">6</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">7</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">8</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">9</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">10</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">11</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">12</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">13</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">14</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+							<tr>
+								<th scope="row">15</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>@twitter</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+				<div class="col-md-3"></div>
+			</div>
+			<br><hr>
+		</div>
+		
+
+		<!--Boostrap-->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<!--Libreria de iconos-->
+		<script src="https://kit.fontawesome.com/971702eaaa.js" crossorigin="anonymous"></script>
+		
+		<!--Jquery-->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+
+		<!--Librerias para transformar tablas a HTML-->
+		<script src="libExcel/FileSaver.min.js"></script>
+		<script src="libExcel/xls.core.min.js"></script>
+		<script src="libExcel/Blob.min.js"></script>
+		<script src="dist/js/tableexport.js"></script>
+
+		<!--Libreria Datatable-->
+		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.20/datatables.min.js"></script>
+
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.table').DataTable();
+			});
+		</script>
+
+
+	</body>
+	</html>	
+
